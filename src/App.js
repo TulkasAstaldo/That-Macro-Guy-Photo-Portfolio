@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { GlobalStyles } from "./global-styles";
+import { Switch, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { About, Gallery, Home } from "./pages";
+import { NavbarContainer } from "./containers/navbar";
 
 function App() {
+  const { isMacro, isSunset, isStreet, isBnW } = useSelector(
+    ({ theme }) => theme
+  );
+
+  console.log(isMacro);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyles
+        isMacro={isMacro}
+        isSunset={isSunset}
+        isStreet={isStreet}
+        isBnW={isBnW}
+      />
+      <NavbarContainer />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/gallery">
+          <Gallery />
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+      </Switch>
+    </>
   );
 }
 
