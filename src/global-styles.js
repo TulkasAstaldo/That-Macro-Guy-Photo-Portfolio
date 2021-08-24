@@ -15,8 +15,12 @@ export const GlobalStyles = createGlobalStyle`
     font-family: "Rajdhani-Bold";
     src: url(${RajdhaniBold}) format("truetype");
   }
-  
-  html {
+
+  html, body {
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
     background: ${(props) =>
       props.isMacro
         ? "radial-gradient(#009933, #212121)"
@@ -26,13 +30,7 @@ export const GlobalStyles = createGlobalStyle`
         ? "radial-gradient(#006280, #212121)"
         : props.isBnW
         ? "radial-gradient(white, #212121)"
-        : "#000000"} ;
-  }
-
-  html, body {
-    height: 100%;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+        : "radial-gradient( #000000, #262626)"} ;
 
     font-family: "Rajdhani", "Helvetica";
     color: #333333;

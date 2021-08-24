@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 70%;
+  height: auto;
 `;
 
 export const Title = styled.h1`
@@ -14,4 +14,5 @@ export const Title = styled.h1`
   font-family: "Rajdhani-Bold";
   text-align: center;
   color: #dbdbdb;
+  text-shadow: 2px 2px 4px #000000;
 `;

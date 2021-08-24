@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { About, Gallery, Home } from "./pages";
 import { NavbarContainer } from "./containers/navbar";
+import { FooterContainer } from "./containers/footer";
 
 function App() {
   const { isMacro, isSunset, isStreet, isBnW } = useSelector(
@@ -32,6 +33,7 @@ function App() {
           <About />
         </Route>
       </Switch>
+      <FooterContainer />
     </>
   );
 }
