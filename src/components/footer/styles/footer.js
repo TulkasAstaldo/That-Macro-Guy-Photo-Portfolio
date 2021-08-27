@@ -8,6 +8,7 @@ export const Container = styled.footer`
   color: white;
   text-align: center;
   background-color: rgb(0, 0, 0, 0.5);
+  padding: 2%;
 `;
 
 export const IconList = styled.div`
@@ -31,4 +32,5 @@ export const Link = styled.a``;
 
 export const Text = styled.p`
   font-weight: bold;
+  margin: 0;
 `;

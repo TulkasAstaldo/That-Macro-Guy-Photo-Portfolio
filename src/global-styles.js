@@ -8,7 +8,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   @font-face {
-    font-family: "Rajdhani";
+    font-family: Rajdhani;
     src: url(${Rajdhani}) format("truetype");
   }
   @font-face {
@@ -18,6 +18,7 @@ export const GlobalStyles = createGlobalStyle`
 
   html, body {
     height: 100%;
+    width: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
@@ -32,10 +33,11 @@ export const GlobalStyles = createGlobalStyle`
         ? "radial-gradient(white, #212121)"
         : "radial-gradient( #000000, #262626)"} ;
 
-    font-family: "Rajdhani", "Helvetica";
+    font-family: Rajdhani, Arial, Helvetica, sans-serif;
     color: #333333;
     font-size: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0;
 }`;
