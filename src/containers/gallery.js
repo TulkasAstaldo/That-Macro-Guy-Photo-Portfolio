@@ -5,16 +5,21 @@ export function GalleryContainer() {
   return (
     <>
       <Header>
-        <Header.Title>That Macro Guy's Gallery</Header.Title>
+        <Header.Title>
+          That Macro Guy's
+          <br />
+          Gallery
+        </Header.Title>
+        <Header.Menu>
+          <Header.NavList>
+            <Header.NavItem>Macro</Header.NavItem>
+            <Header.NavItem>Sunset</Header.NavItem>
+            <Header.NavItem>Street</Header.NavItem>
+            <Header.NavItem>BnW</Header.NavItem>
+          </Header.NavList>
+        </Header.Menu>
       </Header>
-      <Gallery>
-        <Gallery.Menu>
-          <Gallery.NavItem>Macro</Gallery.NavItem>
-          <Gallery.NavItem>Sunset</Gallery.NavItem>
-          <Gallery.NavItem>Street</Gallery.NavItem>
-          <Gallery.NavItem>BnW</Gallery.NavItem>
-        </Gallery.Menu>
-      </Gallery>
+      <Gallery></Gallery>
     </>
   );
 }

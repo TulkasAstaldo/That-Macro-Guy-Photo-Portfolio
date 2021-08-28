@@ -1,29 +1,29 @@
 import styled from "styled-components";
 
 export const Container = styled.footer`
+  position: absolute;
+  width: inherit;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
   text-align: center;
-  background-color: rgb(0, 0, 0, 0.5);
-  padding: 2%;
+  padding: 10px;
 `;
 
 export const IconList = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 70%;
+  width: 200px;
   justify-content: space-evenly;
-  background-color: rgb(0, 0, 0, 0.5)
-  height: 50px;
 `;
 
 export const Icon = styled.a`
-  width: 48px;
-  height: 48px;
+  width: 30px;
+  height: 30px;
   color: white;
   cursor: pointer;
 `;
@@ -33,4 +33,5 @@ export const Link = styled.a``;
 export const Text = styled.p`
   font-weight: bold;
   margin: 0;
+  font-size: 0.8em;
 `;

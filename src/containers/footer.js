@@ -27,7 +27,7 @@ export function FooterContainer() {
             <Twitter />
           </Footer.Icon>
         </Footer.IconList>
-        <Footer.Text>Copyright Panagiotis Ioannou ©</Footer.Text>
+        <Footer.Text>Copyright Panagiotis Ioannou 2021 ©</Footer.Text>
       </Footer>
     </>
   );
