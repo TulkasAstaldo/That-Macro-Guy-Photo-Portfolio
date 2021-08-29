@@ -27,6 +27,8 @@ export const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
+    font-display: block;
+    
     background: ${(props) =>
       props.isMacro
         ? `radial-gradient(rgba(0,0,0, 0.1), rgba(0,0,0,.9)), no-repeat fixed center url(${spider})`

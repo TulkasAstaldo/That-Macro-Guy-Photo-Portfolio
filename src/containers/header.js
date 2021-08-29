@@ -5,8 +5,11 @@ export function HeaderContainer() {
   return (
     <>
       <Header>
-        <Header.Title>That Macro Guy Photography</Header.Title>
-        <Header.Button />
+        <Header.Title>
+          That Macro Guy
+          <br />
+          Photography
+        </Header.Title>
       </Header>
     </>
   );

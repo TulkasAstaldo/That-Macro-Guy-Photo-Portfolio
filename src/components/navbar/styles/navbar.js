@@ -168,11 +168,11 @@ export const DropDownList = styled.div`
   &.closed {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.25s cubic-bezier(0.5, 0, 0.1, 1);
+    transition: max-height 400ms cubic-bezier(0.5, 0, 0.1, 1);
   }
   &.open {
     max-height: 1200px;
-    transition: max-height 0.25s cubic-bezier(0.5, 0, 0.1, 1);
+    transition: max-height 400ms cubic-bezier(0.5, 0, 0.1, 1);
 
     ${Link} {
       &:hover {
