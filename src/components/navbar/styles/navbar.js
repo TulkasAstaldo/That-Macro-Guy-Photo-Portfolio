@@ -94,7 +94,10 @@ export const Base = styled.nav`
 
   @media (min-width: 481px) {
     width: 200px;
+
+    }
   }
+ 
 `;
 
 export const List = styled.div`
@@ -107,6 +110,7 @@ export const List = styled.div`
 
   @media (min-width: 481px) {
     width: 90%;
+    height: 50%;
   }
 `;
 

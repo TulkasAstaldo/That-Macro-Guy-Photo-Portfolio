@@ -22,11 +22,16 @@ export const Link = styled(ReactRouterLink)`
 `;
 
 export const Title = styled.h1`
-  font-size: 3.5em;
+  font-size: 3em;
   font-family: Rajdhani-Bold, Helvetica;
   text-align: center;
   text-shadow: 2px 2px 4px #000000;
   margin-bottom: 0;
+
+  @media (min-width: 481px) {
+    margin-top: 30px;
+    font-size: 3.5em;
+  }
 
   @media (min-width: 1024px) {
     margin-top: 30px;

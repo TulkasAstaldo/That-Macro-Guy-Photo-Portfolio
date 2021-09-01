@@ -120,8 +120,7 @@ Navbar.GalleryDropdown = function NavbarGalleryDropDown({ children, ...rest }) {
 };
 
 Navbar.DropDownItem = function NavbarDropDownItem({ children, ...rest }) {
-  const isOpen = useSelector(({ toggle }) => toggle.isOpen);
-  const openNav = useSelector(({ toggle }) => toggle.openNav);
+  const { isOpen, openNav } = useSelector(({ toggle }) => toggle);
   const dispatch = useDispatch();
 
   const handleGalleryClick = () => {
