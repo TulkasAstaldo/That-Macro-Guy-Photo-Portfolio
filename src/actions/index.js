@@ -2,7 +2,7 @@ import {
   SET_BNW,
   SET_DEFAULT,
   SET_MACRO,
-  SET_STREET,
+  SET_URBAN,
   SET_SUNSET,
   TOGGLE_DROPDOWN,
 } from "./actionTypes";
@@ -24,8 +24,8 @@ export const setSunset = () => ({
   type: SET_SUNSET,
 });
 
-export const setStreet = () => ({
-  type: SET_STREET,
+export const setUrban = () => ({
+  type: SET_URBAN,
 });
 
 export const setBnW = () => ({

@@ -7,18 +7,16 @@ import { NavbarContainer } from "./containers/navbar";
 import { FooterContainer } from "./containers/footer";
 
 function App() {
-  const { isMacro, isSunset, isStreet, isBnW } = useSelector(
+  const { isMacro, isSunset, isUrban, isBnW } = useSelector(
     ({ theme }) => theme
   );
-
-  console.log(isMacro);
 
   return (
     <>
       <GlobalStyles
         isMacro={isMacro}
         isSunset={isSunset}
-        isStreet={isStreet}
+        isUrban={isUrban}
         isBnW={isBnW}
       />
       <NavbarContainer />

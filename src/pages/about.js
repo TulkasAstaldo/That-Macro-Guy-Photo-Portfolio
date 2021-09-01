@@ -5,7 +5,7 @@ export default function About() {
   return (
     <>
       <Header>
-        <Header.Title>
+        <Header.Title to={"/"}>
           Who is <br />
           That Macro Guy?
         </Header.Title>

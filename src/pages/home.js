@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Header>
-        <Header.Title>
+        <Header.Title to={"/"}>
           That Macro Guy <br /> Photography
         </Header.Title>
       </Header>

@@ -1,7 +1,7 @@
 import {
   SET_BNW,
   SET_MACRO,
-  SET_STREET,
+  SET_URBAN,
   SET_SUNSET,
   SET_DEFAULT,
 } from "../actions/actionTypes";
@@ -9,19 +9,18 @@ import {
 const INITIAL_STATE = {
   isMacro: false,
   isSunset: false,
-  isStreet: false,
+  isUrban: false,
   isBnW: false,
 };
 
 const themeReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case SET_MACRO:
-      console.log("setting macro to" + !state.isMacro);
       return {
         ...state,
         isMacro: true,
         isSunset: false,
-        isStreet: false,
+        isUrban: false,
         isBnW: false,
       };
 
@@ -30,15 +29,15 @@ const themeReducer = (state = INITIAL_STATE, action) => {
         ...state,
         isMacro: false,
         isSunset: true,
-        isStreet: false,
+        isUrban: false,
         isBnW: false,
       };
-    case SET_STREET:
+    case SET_URBAN:
       return {
         ...state,
         isMacro: false,
         isSunset: false,
-        isStreet: true,
+        isUrban: true,
         isBnW: false,
       };
     case SET_BNW:
@@ -46,7 +45,7 @@ const themeReducer = (state = INITIAL_STATE, action) => {
         ...state,
         isMacro: false,
         isSunset: false,
-        isStreet: false,
+        isUrban: false,
         isBnW: true,
       };
     case SET_DEFAULT:

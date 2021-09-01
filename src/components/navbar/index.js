@@ -5,7 +5,7 @@ import {
   toggleNav,
   setMacro,
   setSunset,
-  setStreet,
+  setUrban,
   setBnW,
   setDefault,
 } from "../../actions";
@@ -15,6 +15,7 @@ import {
   Base,
   List,
   Link,
+  GalleryDropDown,
   DropDown,
   DropDownList,
   DropDownItem,
@@ -70,10 +71,10 @@ Navbar.Link = function NavLink({ children, ...rest }) {
       case "Sunset":
         dispatch(setSunset());
         break;
-      case "Street/ Urban":
-        dispatch(setStreet());
+      case "Urban":
+        dispatch(setUrban());
         break;
-      case "Black & White":
+      case "BnW":
         dispatch(setBnW());
         break;
       default:
@@ -87,9 +88,9 @@ Navbar.Link = function NavLink({ children, ...rest }) {
         return "macro";
       case "Sunset":
         return "sunset";
-      case "Street/ Urban":
-        return "street";
-      case "Black & White":
+      case "Urban":
+        return "urban";
+      case "BnW":
         return "bnw";
       default:
         return;
@@ -107,12 +108,29 @@ Navbar.DropDown = function NavbarDropDown({ children, ...rest }) {
   return <DropDown {...rest}>{children}</DropDown>;
 };
 
-Navbar.DropDownItem = function NavbarDropDownItem({ children, ...rest }) {
+Navbar.GalleryDropdown = function NavbarGalleryDropDown({ children, ...rest }) {
   const isOpen = useSelector(({ toggle }) => toggle.isOpen);
   const dispatch = useDispatch();
 
   return (
-    <DropDownItem onClick={() => dispatch(toggleDropDown(isOpen))} {...rest}>
+    <GalleryDropDown onClick={() => dispatch(toggleDropDown(isOpen))} {...rest}>
+      {children}
+    </GalleryDropDown>
+  );
+};
+
+Navbar.DropDownItem = function NavbarDropDownItem({ children, ...rest }) {
+  const isOpen = useSelector(({ toggle }) => toggle.isOpen);
+  const openNav = useSelector(({ toggle }) => toggle.openNav);
+  const dispatch = useDispatch();
+
+  const handleGalleryClick = () => {
+    dispatch(toggleDropDown(isOpen));
+    setTimeout(() => dispatch(toggleNav(openNav)), 300);
+  };
+
+  return (
+    <DropDownItem onClick={handleGalleryClick} {...rest}>
       {children}
     </DropDownItem>
   );

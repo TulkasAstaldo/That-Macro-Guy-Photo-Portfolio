@@ -22,8 +22,8 @@ export const IconList = styled.div`
 `;
 
 export const Icon = styled.a`
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   color: white;
   cursor: pointer;
 `;
@@ -33,5 +33,5 @@ export const Link = styled.a``;
 export const Text = styled.p`
   font-weight: bold;
   margin: 0;
-  font-size: 0.8em;
+  font-size: 0.9em;
 `;

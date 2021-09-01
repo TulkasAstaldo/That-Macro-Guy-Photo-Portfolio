@@ -91,6 +91,10 @@ export const Base = styled.nav`
     transform: translateX(-100%);
     transition: transform 250ms cubic-bezier(0.5, 0, 0.5, 1);
   }
+
+  @media (min-width: 481px) {
+    width: 200px;
+  }
 `;
 
 export const List = styled.div`
@@ -100,16 +104,20 @@ export const List = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+
+  @media (min-width: 481px) {
+    width: 90%;
+  }
 `;
 
 export const Link = styled(ReactRouterLink)`
-  display: block;
   padding: 7%;
   font-size: 3em;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
   border-radius: 7px;
+  }
 
   &:hover {
     background: rgb(33, 33, 33);
@@ -118,27 +126,40 @@ export const Link = styled(ReactRouterLink)`
   &:visited {
     color: #dbdbdb;
   }
+
+  @media (min-width: 481px) {
+    font-size: 2.5em;
+  }
 `;
 
-export const DropDownItem = styled.p`
-  padding: 5%;
-  margin: 0;
-  width: 100%;
+export const GalleryDropDown = styled.a`
+  padding: 7%;
   font-size: 3em;
   font-weight: bold;
   text-align: center;
-  cursor: pointer;
-  box-sizing: border-box;
-  &:hover {
-    background: #0d0d0d;
+  text-decoration: none;
+  border-radius: 7px;
   }
-  &::after {
+
+  &:hover {
     background: rgb(33, 33, 33);
     background: radial-gradient(#0d0d0d, #212121);
   }
+  &:visited {
+    color: #dbdbdb;
+  }
+
+  @media (min-width: 481px) {
+    font-size: 2.5em;
+  }
 `;
 
+export const DropDownItem = styled(Link)``;
+
 export const DropDown = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   width: 100%;
 `;
@@ -151,14 +172,17 @@ export const DropDownList = styled.div`
   justify-content: space-evenly;
   box-sizing: border-box;
   overflow: hidden;
-  height: 80%;
+  height: auto;
 
   ${Link} {
     width: 100%;
     height: fit-content;
-    font-size: 1.6em;
-    background: rgb(33, 33, 33);
-    background: radial-gradient(#0d0d0d, #212121);
+    font-size: 1.8em;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(0, 0, 0, 0)
+    );
 
     &:last-of-type {
       margin-bottom: 10%;
@@ -177,7 +201,7 @@ export const DropDownList = styled.div`
     ${Link} {
       &:hover {
         color: black;
-
+        width: 130px;
         &.macro {
           background: radial-gradient(#009933, #212121);
         }
@@ -186,7 +210,7 @@ export const DropDownList = styled.div`
           background: radial-gradient(#ffa31a, #212121);
         }
 
-        &.street {
+        &.urban {
           background: radial-gradient(#007599, #212121);
         }
 

@@ -5,7 +5,7 @@ export function GalleryContainer() {
   return (
     <>
       <Header>
-        <Header.Title>
+        <Header.Title to={"/"}>
           That Macro Guy's
           <br />
           Gallery
@@ -14,7 +14,7 @@ export function GalleryContainer() {
           <Header.NavList>
             <Header.NavItem>Macro</Header.NavItem>
             <Header.NavItem>Sunset</Header.NavItem>
-            <Header.NavItem>Street</Header.NavItem>
+            <Header.NavItem>Urban</Header.NavItem>
             <Header.NavItem>BnW</Header.NavItem>
           </Header.NavList>
         </Header.Menu>

@@ -1,7 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Navbar } from "../components";
 
 export function NavbarContainer() {
+  const isOpen = useSelector(({ toggle }) => toggle.isOpen);
   return (
     <>
       <Navbar>
@@ -10,12 +12,18 @@ export function NavbarContainer() {
           <Navbar.List>
             <Navbar.Link to={"/"}>Home</Navbar.Link>
             <Navbar.DropDown>
-              <Navbar.DropDownItem>Gallery</Navbar.DropDownItem>
+              {!isOpen ? (
+                <Navbar.GalleryDropdown>Gallery</Navbar.GalleryDropdown>
+              ) : (
+                <Navbar.DropDownItem to={"/gallery"}>
+                  Gallery
+                </Navbar.DropDownItem>
+              )}
               <Navbar.DropDownList>
                 <Navbar.Link to={"/gallery"}>Macro</Navbar.Link>
                 <Navbar.Link to={"/gallery"}>Sunset</Navbar.Link>
-                <Navbar.Link to={"/gallery"}>Street/ Urban</Navbar.Link>
-                <Navbar.Link to={"/gallery"}>Black & White</Navbar.Link>
+                <Navbar.Link to={"/gallery"}>Urban</Navbar.Link>
+                <Navbar.Link to={"/gallery"}>BnW</Navbar.Link>
               </Navbar.DropDownList>
             </Navbar.DropDown>
             <Navbar.Link to="/about">About</Navbar.Link>

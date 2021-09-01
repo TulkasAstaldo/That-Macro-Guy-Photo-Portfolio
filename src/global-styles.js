@@ -27,6 +27,9 @@ export const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
+  }
+
+  body {
     font-display: block;
     
     background: ${(props) =>
@@ -34,7 +37,7 @@ export const GlobalStyles = createGlobalStyle`
         ? `radial-gradient(rgba(0,0,0, 0.1), rgba(0,0,0,.9)), no-repeat fixed center url(${spider})`
         : props.isSunset
         ? `radial-gradient(rgba(0,0,0, 0.1), rgba(0,0,0,.4)), no-repeat fixed center url(${bike})`
-        : props.isStreet
+        : props.isUrban
         ? `radial-gradient(rgba(0,0,0, 0.1), rgba(0,0,0,.9)), no-repeat fixed center url(${alley})`
         : props.isBnW
         ? `radial-gradient(rgba(0,0,0, 0.1), rgba(0,0,0,.9)), no-repeat fixed center url(${bw})`

@@ -1,21 +1,33 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   setMacro,
   setBnW,
   setDefault,
-  setStreet,
+  setUrban,
   setSunset,
 } from "../../actions";
 
-import { Container, Title, Menu, NavList, NavItem } from "./styles/header";
+import {
+  Container,
+  Title,
+  Menu,
+  NavList,
+  NavItem,
+  Link,
+} from "./styles/header";
 
 export default function Header({ children, ...rest }) {
   return <Container {...rest}>{children}</Container>;
 }
 
 Header.Title = function HeaderTitle({ children, ...rest }) {
-  return <Title {...rest}>{children}</Title>;
+  const dispatch = useDispatch();
+  return (
+    <Link {...rest} onClick={() => dispatch(setDefault())}>
+      <Title>{children}</Title>
+    </Link>
+  );
 };
 
 Header.Menu = function HeaderMenu({ children, ...rest }) {
@@ -27,7 +39,6 @@ Header.NavList = function HeaderNavList({ children, ...rest }) {
 };
 
 Header.NavItem = function HeaderNavItem({ children, ...rest }) {
-  // const openNav = useSelector(({ toggle }) => toggle.openNav);
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -38,8 +49,8 @@ Header.NavItem = function HeaderNavItem({ children, ...rest }) {
       case "Sunset":
         dispatch(setSunset());
         break;
-      case "Street":
-        dispatch(setStreet());
+      case "Urban":
+        dispatch(setUrban());
         break;
       case "BnW":
         dispatch(setBnW());
