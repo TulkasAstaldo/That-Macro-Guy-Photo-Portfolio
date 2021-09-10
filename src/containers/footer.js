@@ -11,19 +11,19 @@ export function FooterContainer() {
     <>
       <Footer>
         <Footer.IconList>
-          <Footer.Icon>
+          <Footer.Icon url={"https://www.facebook.com/TulkasAstaldo/"}>
             <FacebookSquare />
           </Footer.Icon>
-          <Footer.Icon>
+          <Footer.Icon url={"https://www.instagram.com/tulkas_astaldo"}>
             <Instagram />
           </Footer.Icon>
-          <Footer.Icon>
+          <Footer.Icon url={"https://www.linkedin.com/in/p-ioan9/"}>
             <LinkedinSquare />
           </Footer.Icon>
-          <Footer.Icon>
+          <Footer.Icon url={"https://github.com/TulkasAstaldo"}>
             <Github />
           </Footer.Icon>
-          <Footer.Icon>
+          <Footer.Icon url={"https://twitter.com/TulkasAstaldo9"}>
             <Twitter />
           </Footer.Icon>
         </Footer.IconList>

@@ -6,7 +6,6 @@ import bike from "./images/bike.jpg";
 import alley from "./images/alley.jpg";
 import bw from "./images/bw.jpg";
 import storm from "./images/eye2.jpg";
-import { useEffect } from "react";
 
 export const GlobalStyles = createGlobalStyle`
   *, *:before, *:after {

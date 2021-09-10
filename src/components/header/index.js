@@ -24,9 +24,11 @@ export default function Header({ children, ...rest }) {
 Header.Title = function HeaderTitle({ children, ...rest }) {
   const dispatch = useDispatch();
   return (
-    <Link {...rest} onClick={() => dispatch(setDefault())}>
-      <Title>{children}</Title>
-    </Link>
+    <Title>
+      <Link {...rest} onClick={() => dispatch(setDefault())}>
+        {children}
+      </Link>
+    </Title>
   );
 };
 

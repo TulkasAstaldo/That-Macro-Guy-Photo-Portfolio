@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "url": "images/1.jpg",
+    "type": "macro"
+  },
+  {
+    "id": "2",
+    "url": "images/2.jpg",
+    "type": "urban"
+  },
+  {
+    "id": "3",
+    "url": "images/3.jpg",
+    "type": "sunset"
+  },
+  {
+    "id": "4",
+    "url": "images/4.jpg",
+    "type": "sunset"
+  },
+  {
+    "id": "5",
+    "url": "images/5.jpg",
+    "type": "sunset"
+  },
+  {
+    "id": "6",
+    "url": "images/6.jpg",
+    "type": "macro"
+  },
+  {
+    "id": "7",
+    "url": "images/7.jpg",
+    "type": "urban"
+  },
+  {
+    "id": "8",
+    "url": "images/8.jpg",
+    "type": "macro"
+  }
+]

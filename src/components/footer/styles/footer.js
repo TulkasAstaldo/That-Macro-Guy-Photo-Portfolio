@@ -1,7 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.footer`
-  position: absolute;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0)
+  );
+  position: fixed;
   width: inherit;
   bottom: 0;
   display: flex;
@@ -10,7 +16,7 @@ export const Container = styled.footer`
   align-items: center;
   color: white;
   text-align: center;
-  padding: 10px;
+  padding-top: 5px;
 `;
 
 export const IconList = styled.div`

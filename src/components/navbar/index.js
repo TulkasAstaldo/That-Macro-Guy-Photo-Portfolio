@@ -82,23 +82,8 @@ Navbar.Link = function NavLink({ children, ...rest }) {
     }
   };
 
-  const linkClassName = (children) => {
-    switch (children) {
-      case "Macro":
-        return "macro";
-      case "Sunset":
-        return "sunset";
-      case "Urban":
-        return "urban";
-      case "BnW":
-        return "bnw";
-      default:
-        return;
-    }
-  };
-
   return (
-    <Link className={linkClassName(children)} onClick={handleClick} {...rest}>
+    <Link className={children} onClick={handleClick} {...rest}>
       {children}
     </Link>
   );
@@ -125,7 +110,9 @@ Navbar.DropDownItem = function NavbarDropDownItem({ children, ...rest }) {
 
   const handleGalleryClick = () => {
     dispatch(toggleDropDown(isOpen));
-    setTimeout(() => dispatch(toggleNav(openNav)), 300);
+    dispatch(setDefault());
+    // dispatch(toggleNav());
+    setTimeout(() => dispatch(toggleNav()), 300);
   };
 
   return (

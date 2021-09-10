@@ -8,7 +8,7 @@ export const Button = styled.button`
   background: transparent;
   border: 0;
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   left: 0.5em;
   top: 1em;
   height: 3em;
@@ -143,6 +143,7 @@ export const GalleryDropDown = styled.a`
   text-align: center;
   text-decoration: none;
   border-radius: 7px;
+  cursor: pointer;
   }
 
   &:hover {
@@ -206,15 +207,15 @@ export const DropDownList = styled.div`
       &:hover {
         color: black;
         width: 130px;
-        &.macro {
+        &.Macro {
           background: radial-gradient(#009933, #212121);
         }
 
-        &.sunset {
+        &.Sunset {
           background: radial-gradient(#ffa31a, #212121);
         }
 
-        &.urban {
+        &.Urban {
           background: radial-gradient(#007599, #212121);
         }
 

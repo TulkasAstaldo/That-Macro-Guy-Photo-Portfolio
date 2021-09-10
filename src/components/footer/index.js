@@ -15,7 +15,7 @@ Footer.IconList = function FooterIconList({ children, ...rest }) {
 
 Footer.Icon = function FooterIcon({ url, src, children, ...rest }) {
   return (
-    <Icon href={url} {...rest}>
+    <Icon href={url} target="_blank" {...rest}>
       {children}
     </Icon>
   );

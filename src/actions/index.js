@@ -4,9 +4,11 @@ import {
   SET_MACRO,
   SET_URBAN,
   SET_SUNSET,
+  TOGGLE_NAV,
   TOGGLE_DROPDOWN,
+  FETCH_PHOTOS,
 } from "./actionTypes";
-import { TOGGLE_NAV } from "./actionTypes";
+import photoApi from "../api/photoApi";
 
 export const toggleDropDown = () => ({
   type: TOGGLE_DROPDOWN,
@@ -35,3 +37,8 @@ export const setBnW = () => ({
 export const setDefault = () => ({
   type: SET_DEFAULT,
 });
+
+export const fetchPhotos = () => async (dispatch) => {
+  const response = await photoApi.get();
+  dispatch({ type: FETCH_PHOTOS, payload: response.data });
+};
