@@ -32,6 +32,11 @@ export const Icon = styled.a`
   height: 40px;
   color: white;
   cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: transform 20ms ease-in-out;
+  }
 `;
 
 export const Link = styled.a``;

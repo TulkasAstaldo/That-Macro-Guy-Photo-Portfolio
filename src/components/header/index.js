@@ -63,7 +63,7 @@ Header.NavItem = function HeaderNavItem({ children, ...rest }) {
   };
 
   return (
-    <NavItem onClick={handleClick} {...rest}>
+    <NavItem className={children} onClick={handleClick} {...rest}>
       {children}
     </NavItem>
   );

@@ -5,6 +5,20 @@ export const Container = styled.div`
   margin-top: 1em;
 `;
 
+export const Category = styled.div``;
+
+export const BackIcon = styled.div`
+  width: 60px;
+  margin-left: 3em;
+  margin-top: -1em;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: transform ease-in-out;
+  }
+`;
+
 export const PhotoGrid = styled.section`
   margin: auto;
   width: 90%;
@@ -32,6 +46,7 @@ export const PhotoItem = styled.div`
   height: auto;
   box-shadow: 3px 3px 3px black;
   margin: 5px;
+  cursor: pointer;
 
   @media (min-width: 481px) {
     width: auto;

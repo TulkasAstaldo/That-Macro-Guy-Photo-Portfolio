@@ -15,13 +15,6 @@ const INITIAL_STATE = {
 };
 
 const photosReducer = (state = INITIAL_STATE, action) => {
-  // if (action.type === FETCH_PHOTOS) {
-  //   return {
-  //     ...state,
-  //     photos: action.payload,
-  //   };
-  // } else {
-  //   return state;
   switch (action.type) {
     case FETCH_PHOTOS:
       return { ...state, photos: action.payload };

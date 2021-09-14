@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPhotos } from "../actions";
 import { Gallery, Header } from "../components";
+import { ReturnUpBack } from "@styled-icons/ionicons-sharp/ReturnUpBack";
 
 export function GalleryContainer() {
   const { isMacro, isSunset, isUrban, isBnW } = useSelector(
@@ -11,6 +12,7 @@ export function GalleryContainer() {
     ({ imagesCollection }) => imagesCollection
   );
   const dispatch = useDispatch();
+
   const collection = isMacro
     ? macro
     : isSunset
@@ -46,6 +48,11 @@ export function GalleryContainer() {
         </Header.Menu>
       </Header>
       <Gallery>
+        {collection !== photos && (
+          <Gallery.BackIcon>
+            <ReturnUpBack />
+          </Gallery.BackIcon>
+        )}
         <Gallery.PhotoGrid>
           {collection.map((image) => (
             <Gallery.PhotoItem key={image.id}>

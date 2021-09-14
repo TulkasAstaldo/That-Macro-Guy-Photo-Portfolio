@@ -43,6 +43,7 @@ export const Menu = styled.div`
   margin-top: 0;
   background-color: rgb(0, 0, 0, 0.5);
   width: 100%;
+  padding: 15px;
 
   @media (min-width: 768px) {
     background: linear-gradient(
@@ -68,11 +69,31 @@ export const NavList = styled.nav`
 `;
 
 export const NavItem = styled.div`
-  padding: 15px;
   font-size: 1.4em;
   font-family: "Rajdhani-Bold";
   font-weight: bold;
   cursor: pointer;
+
+  &:hover {
+    transform: scale(1.2);
+    transition: transform 30ms ease-in-out;
+    &.Macro {
+      color: #009933;
+    }
+
+    &.Sunset {
+      color: #ffa31a;
+    }
+
+    &.Urban {
+      color: #007599;
+    }
+    &.BnW {
+      -webkit-text-fill-color: black; /* Will override color (regardless of order) */
+      -webkit-text-stroke-width: 0.5px;
+      -webkit-text-stroke-color: white;
+    }
+  }
 
   @media (min-width: 1024px) {
     font-size: 2em;

@@ -32,7 +32,7 @@ Navbar.Button = function NavbarButton({ children, ...rest }) {
   return (
     <Button
       className={openNav ? "open" : "closed"}
-      onClick={() => dispatch(toggleNav(openNav))}
+      onClick={() => dispatch(toggleNav())}
       {...rest}
     >
       <span>{children}</span>
@@ -58,11 +58,10 @@ Navbar.List = function NavbarList({ children, ...rest }) {
 };
 
 Navbar.Link = function NavLink({ children, ...rest }) {
-  const openNav = useSelector(({ toggle }) => toggle.openNav);
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(toggleNav(openNav));
+    dispatch(toggleNav());
 
     switch (children) {
       case "Macro":
@@ -94,24 +93,21 @@ Navbar.DropDown = function NavbarDropDown({ children, ...rest }) {
 };
 
 Navbar.GalleryDropdown = function NavbarGalleryDropDown({ children, ...rest }) {
-  const isOpen = useSelector(({ toggle }) => toggle.isOpen);
   const dispatch = useDispatch();
 
   return (
-    <GalleryDropDown onClick={() => dispatch(toggleDropDown(isOpen))} {...rest}>
+    <GalleryDropDown onClick={() => dispatch(toggleDropDown())} {...rest}>
       {children}
     </GalleryDropDown>
   );
 };
 
 Navbar.DropDownItem = function NavbarDropDownItem({ children, ...rest }) {
-  const { isOpen, openNav } = useSelector(({ toggle }) => toggle);
   const dispatch = useDispatch();
 
   const handleGalleryClick = () => {
-    dispatch(toggleDropDown(isOpen));
+    dispatch(toggleDropDown());
     dispatch(setDefault());
-    // dispatch(toggleNav());
     setTimeout(() => dispatch(toggleNav()), 300);
   };
 
