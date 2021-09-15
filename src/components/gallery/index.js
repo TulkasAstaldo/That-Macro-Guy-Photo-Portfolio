@@ -5,6 +5,7 @@ import { setDefault } from "../../actions";
 import {
   Container,
   BackIcon,
+  BackTopIcon,
   PhotoGrid,
   PhotoItem,
   Photo,
@@ -21,6 +22,17 @@ Gallery.BackIcon = function GalleryBackIcon({ children, ...rest }) {
     <BackIcon onClick={() => dispatch(setDefault())} {...rest}>
       {children}
     </BackIcon>
+  );
+};
+
+Gallery.BackTopIcon = function GalleryBackTopIcon({ children, ...rest }) {
+  return (
+    <BackTopIcon
+      onClick={() => window.scroll({ top: 0, behavior: "smooth" })}
+      {...rest}
+    >
+      {children}
+    </BackTopIcon>
   );
 };
 

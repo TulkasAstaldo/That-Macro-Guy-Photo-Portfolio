@@ -121,6 +121,8 @@ export const Link = styled(ReactRouterLink)`
   text-align: center;
   text-decoration: none;
   border-radius: 7px;
+  color: #dbdbdb;
+
   }
 
   &:hover {

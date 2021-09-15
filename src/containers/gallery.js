@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchPhotos } from "../actions";
 import { Gallery, Header } from "../components";
 import { ReturnUpBack } from "@styled-icons/ionicons-sharp/ReturnUpBack";
+import { ChevronUpCircle } from "@styled-icons/boxicons-regular/ChevronUpCircle";
+import { useState } from "react";
 
 export function GalleryContainer() {
   const { isMacro, isSunset, isUrban, isBnW } = useSelector(
@@ -12,6 +14,7 @@ export function GalleryContainer() {
     ({ imagesCollection }) => imagesCollection
   );
   const dispatch = useDispatch();
+  const [offset, setOffset] = useState(0);
 
   const collection = isMacro
     ? macro
@@ -23,12 +26,16 @@ export function GalleryContainer() {
     ? bnw
     : photos;
 
-  console.log(collection);
+  useEffect(() => {
+    window.onscroll = () => {
+      setOffset(window.pageYOffset);
+    };
+  }, []);
 
   useEffect(() => {
     dispatch(fetchPhotos());
     console.log("works");
-  }, [dispatch]);
+  }, []);
 
   return (
     <>
@@ -48,11 +55,14 @@ export function GalleryContainer() {
         </Header.Menu>
       </Header>
       <Gallery>
-        {collection !== photos && (
-          <Gallery.BackIcon>
-            <ReturnUpBack />
-          </Gallery.BackIcon>
-        )}
+        <Gallery.BackIcon opacityValue={collection !== photos ? 1 : 0}>
+          <ReturnUpBack />
+        </Gallery.BackIcon>
+
+        <Gallery.BackTopIcon offset={offset}>
+          <ChevronUpCircle />
+        </Gallery.BackTopIcon>
+
         <Gallery.PhotoGrid>
           {collection.map((image) => (
             <Gallery.PhotoItem key={image.id}>

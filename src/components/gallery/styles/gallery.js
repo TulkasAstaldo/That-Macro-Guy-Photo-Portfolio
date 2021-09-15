@@ -9,14 +9,31 @@ export const Category = styled.div``;
 
 export const BackIcon = styled.div`
   width: 60px;
-  margin-left: 3em;
-  margin-top: -1em;
+  margin-left: 10%;
+  margin-top: -0.5em;
   cursor: pointer;
+  opacity: ${({ opacityValue }) => opacityValue};
+  transition: opacity 200ms ease-out;
+  position: fixed;
 
   &:hover {
     transform: scale(1.1);
     transition: transform ease-in-out;
   }
+
+  @media (min-width: 1260px) {
+    margin-left: 4%;
+  }
+`;
+
+export const BackTopIcon = styled.div`
+  width: 40px;
+  position: fixed;
+  right: 0;
+  bottom: 4em;
+  opacity: ${({ offset }) => (offset >= 500 ? 1 : 0)};
+  transition: opacity 200ms ease-out;
+  cursor: pointer;
 `;
 
 export const PhotoGrid = styled.section`
@@ -53,7 +70,7 @@ export const PhotoItem = styled.div`
     height: 200px;
 
     &:hover {
-      transform: scale(1.2);
+      transform: scale(1.1);
       transition: transform 0.1s ease-out;
     }
     transition: transform 0.1s ease-out;
@@ -62,4 +79,8 @@ export const PhotoItem = styled.div`
 
 export const Photo = styled.img`
   width: 100%;
+  @media (min-width: 481px) {
+    width: auto;
+    height: 100%;
+  }
 `;
