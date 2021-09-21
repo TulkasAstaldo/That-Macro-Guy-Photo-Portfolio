@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setDefault } from "../../actions";
-// import { useSelector, useDispatch } from "react-redux";
 import {
   Container,
   BackIcon,

@@ -1,31 +1,18 @@
-import { TOGGLE_DROPDOWN, TOGGLE_NAV } from "../actions/actionTypes";
+import { TOGGLE } from "../actions/actionTypes";
 
 const INITIAL_STATE = {
-  isOpen: false,
-  openNav: false,
+  dropdown: false,
+  nav: false,
 };
 
 const toggleReducer = (state = { INITIAL_STATE }, action) => {
   switch (action.type) {
-    case TOGGLE_DROPDOWN: {
+    case TOGGLE:
+      console.log(action.payload);
       return {
         ...state,
-        isOpen: !state.isOpen,
+        [action.payload]: !state[action.payload],
       };
-    }
-    case TOGGLE_NAV: {
-      if (state.isOpen && state.openNav) {
-        return {
-          ...state,
-          openNav: !state.openNav,
-          isOpen: !state.isOpen,
-        };
-      } else
-        return {
-          ...state,
-          openNav: !state.openNav,
-        };
-    }
     default:
       return state;
   }

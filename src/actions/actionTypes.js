@@ -1,8 +1,11 @@
-export const TOGGLE_DROPDOWN = "TOGGLE_DROPDOWN";
-export const TOGGLE_NAV = "TOGGLE_NAV";
-export const SET_MACRO = "SET_MACRO";
-export const SET_SUNSET = "SET_SUNSET";
-export const SET_URBAN = "SET_URBAN";
-export const SET_BNW = "SET_BNW";
+// export const TOGGLE_DROPDOWN = "TOGGLE_DROPDOWN";
+// export const TOGGLE_NAV = "TOGGLE_NAV";
+export const TOGGLE = "TOGGLE";
+export const SET_THEME = "SET_THEME";
+// export const SET_MACRO = "SET_MACRO";
+// export const SET_SUNSET = "SET_SUNSET";
+// export const SET_URBAN = "SET_URBAN";
+// export const SET_BNW = "SET_BNW";
 export const SET_DEFAULT = "SET_DEFAULT";
 export const FETCH_PHOTOS = "FETCH_PHOTOS";
+export const SET_PHOTOS = "SET_PHOTOS";

@@ -3,30 +3,48 @@ import { useSelector } from "react-redux";
 import { Navbar } from "../components";
 
 export function NavbarContainer() {
-  const isOpen = useSelector(({ toggle }) => toggle.isOpen);
+  const dropdownOpen = useSelector(({ toggle }) => toggle.dropdown);
   return (
     <>
       <Navbar>
-        <Navbar.Button />
+        <Navbar.Button nav={"nav"} />
         <Navbar.Base>
           <Navbar.List>
-            <Navbar.Link to={"/"}>Home</Navbar.Link>
+            <Navbar.Link to={"/"} nav={"nav"}>
+              Home
+            </Navbar.Link>
             <Navbar.DropDown>
-              {!isOpen ? (
-                <Navbar.GalleryDropdown>Gallery</Navbar.GalleryDropdown>
+              {!dropdownOpen ? (
+                <Navbar.GalleryDropdown dropdown={"dropdown"}>
+                  Gallery
+                </Navbar.GalleryDropdown>
               ) : (
-                <Navbar.DropDownItem to={"/gallery"}>
+                <Navbar.DropDownItem
+                  nav={"nav"}
+                  dropdown={"dropdown"}
+                  to={"/gallery"}
+                >
                   Gallery
                 </Navbar.DropDownItem>
               )}
               <Navbar.DropDownList>
-                <Navbar.Link to={"/gallery"}>Macro</Navbar.Link>
-                <Navbar.Link to={"/gallery"}>Sunset</Navbar.Link>
-                <Navbar.Link to={"/gallery"}>Urban</Navbar.Link>
-                <Navbar.Link to={"/gallery"}>BnW</Navbar.Link>
+                <Navbar.Link nav={"nav"} to={"/gallery"}>
+                  Macro
+                </Navbar.Link>
+                <Navbar.Link nav={"nav"} to={"/gallery"}>
+                  Sunset
+                </Navbar.Link>
+                <Navbar.Link nav={"nav"} to={"/gallery"}>
+                  Urban
+                </Navbar.Link>
+                <Navbar.Link nav={"nav"} to={"/gallery"}>
+                  BnW
+                </Navbar.Link>
               </Navbar.DropDownList>
             </Navbar.DropDown>
-            <Navbar.Link to="/about">About</Navbar.Link>
+            <Navbar.Link to="/about" nav={"nav"}>
+              About
+            </Navbar.Link>
           </Navbar.List>
         </Navbar.Base>
       </Navbar>

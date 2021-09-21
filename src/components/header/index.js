@@ -1,12 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import {
-  setMacro,
-  setBnW,
-  setDefault,
-  setUrban,
-  setSunset,
-} from "../../actions";
+import { setTheme, setDefault } from "../../actions";
 
 import {
   Container,
@@ -44,22 +38,7 @@ Header.NavItem = function HeaderNavItem({ children, ...rest }) {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    switch (children) {
-      case "Macro":
-        dispatch(setMacro());
-        break;
-      case "Sunset":
-        dispatch(setSunset());
-        break;
-      case "Urban":
-        dispatch(setUrban());
-        break;
-      case "BnW":
-        dispatch(setBnW());
-        break;
-      default:
-        dispatch(setDefault());
-    }
+    children ? dispatch(setTheme(children)) : dispatch(setDefault());
   };
 
   return (

@@ -7,24 +7,12 @@ import { ChevronUpCircle } from "@styled-icons/boxicons-regular/ChevronUpCircle"
 import { useState } from "react";
 
 export function GalleryContainer() {
-  const { isMacro, isSunset, isUrban, isBnW } = useSelector(
-    ({ theme }) => theme
-  );
-  const { photos, macro, sunset, urban, bnw } = useSelector(
-    ({ imagesCollection }) => imagesCollection
-  );
+  const { Macro, Sunset, Urban, BnW } = useSelector(({ theme }) => theme);
+  const { viewShots } = useSelector(({ imagesCollection }) => imagesCollection);
   const dispatch = useDispatch();
   const [offset, setOffset] = useState(0);
 
-  const collection = isMacro
-    ? macro
-    : isSunset
-    ? sunset
-    : isUrban
-    ? urban
-    : isBnW
-    ? bnw
-    : photos;
+  const backUpArrow = Macro || Sunset || Urban || BnW ? true : false;
 
   useEffect(() => {
     window.onscroll = () => {
@@ -35,7 +23,7 @@ export function GalleryContainer() {
   useEffect(() => {
     dispatch(fetchPhotos());
     console.log("works");
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
@@ -55,7 +43,7 @@ export function GalleryContainer() {
         </Header.Menu>
       </Header>
       <Gallery>
-        <Gallery.BackIcon opacityValue={collection !== photos ? 1 : 0}>
+        <Gallery.BackIcon opacityValue={backUpArrow ? 1 : 0}>
           <ReturnUpBack />
         </Gallery.BackIcon>
 
@@ -64,7 +52,7 @@ export function GalleryContainer() {
         </Gallery.BackTopIcon>
 
         <Gallery.PhotoGrid>
-          {collection.map((image) => (
+          {viewShots.map((image) => (
             <Gallery.PhotoItem key={image.id}>
               <Gallery.Photo src={image.url} />
             </Gallery.PhotoItem>

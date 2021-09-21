@@ -1,14 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  toggleDropDown,
-  toggleNav,
-  setMacro,
-  setSunset,
-  setUrban,
-  setBnW,
-  setDefault,
-} from "../../actions";
+import { toggle, setDefault, setTheme } from "../../actions";
 import {
   Container,
   Button,
@@ -25,14 +17,15 @@ export default function Navbar({ children, ...rest }) {
   return <Container {...rest}>{children}</Container>;
 }
 
-Navbar.Button = function NavbarButton({ children, ...rest }) {
-  const openNav = useSelector(({ toggle }) => toggle.openNav);
+Navbar.Button = function NavbarButton({ nav, children, ...rest }) {
+  const navOpen = useSelector(({ toggle }) => toggle.nav);
   const dispatch = useDispatch();
 
   return (
     <Button
-      className={openNav ? "open" : "closed"}
-      onClick={() => dispatch(toggleNav())}
+      nav={nav}
+      className={navOpen ? "open" : "closed"}
+      onClick={() => dispatch(toggle(nav))}
       {...rest}
     >
       <span>{children}</span>
@@ -45,9 +38,9 @@ Navbar.Title = function Title({ children, ...rest }) {
 };
 
 Navbar.Base = function NavbarBase({ children, ...rest }) {
-  const openNav = useSelector(({ toggle }) => toggle.openNav);
+  const navOpen = useSelector(({ toggle }) => toggle.nav);
   return (
-    <Base className={openNav ? "open" : "closed"} {...rest}>
+    <Base className={navOpen ? "open" : "closed"} {...rest}>
       {children}
     </Base>
   );
@@ -57,28 +50,12 @@ Navbar.List = function NavbarList({ children, ...rest }) {
   return <List {...rest}>{children}</List>;
 };
 
-Navbar.Link = function NavLink({ children, ...rest }) {
+Navbar.Link = function NavLink({ nav, children, ...rest }) {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(toggleNav());
-
-    switch (children) {
-      case "Macro":
-        dispatch(setMacro());
-        break;
-      case "Sunset":
-        dispatch(setSunset());
-        break;
-      case "Urban":
-        dispatch(setUrban());
-        break;
-      case "BnW":
-        dispatch(setBnW());
-        break;
-      default:
-        dispatch(setDefault());
-    }
+    dispatch(toggle(nav));
+    children ? dispatch(setTheme(children)) : dispatch(setDefault());
   };
 
   return (
@@ -92,23 +69,32 @@ Navbar.DropDown = function NavbarDropDown({ children, ...rest }) {
   return <DropDown {...rest}>{children}</DropDown>;
 };
 
-Navbar.GalleryDropdown = function NavbarGalleryDropDown({ children, ...rest }) {
+Navbar.GalleryDropdown = function NavbarGalleryDropDown({
+  dropdown,
+  children,
+  ...rest
+}) {
   const dispatch = useDispatch();
 
   return (
-    <GalleryDropDown onClick={() => dispatch(toggleDropDown())} {...rest}>
+    <GalleryDropDown onClick={() => dispatch(toggle(dropdown))} {...rest}>
       {children}
     </GalleryDropDown>
   );
 };
 
-Navbar.DropDownItem = function NavbarDropDownItem({ children, ...rest }) {
+Navbar.DropDownItem = function NavbarDropDownItem({
+  nav,
+  dropdown,
+  children,
+  ...rest
+}) {
   const dispatch = useDispatch();
 
   const handleGalleryClick = () => {
-    dispatch(toggleDropDown());
+    dispatch(toggle(dropdown));
     dispatch(setDefault());
-    setTimeout(() => dispatch(toggleNav()), 300);
+    setTimeout(() => dispatch(toggle(nav)), 300);
   };
 
   return (
@@ -119,9 +105,9 @@ Navbar.DropDownItem = function NavbarDropDownItem({ children, ...rest }) {
 };
 
 Navbar.DropDownList = function NavbarDropDownList({ children, ...rest }) {
-  const isOpen = useSelector(({ toggle }) => toggle.isOpen);
+  const dropdown = useSelector(({ toggle }) => toggle.dropdown);
   return (
-    <DropDownList className={isOpen ? "open" : "closed"} {...rest}>
+    <DropDownList className={dropdown ? "open" : "closed"} {...rest}>
       {children}
     </DropDownList>
   );
